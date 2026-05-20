@@ -13,4 +13,5 @@ add_executable(ldcf
     src/level.cpp
     src/ldcf.cpp
     src/genome.cpp
+    src/kmer.cpp
 )
