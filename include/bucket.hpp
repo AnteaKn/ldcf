@@ -1,15 +1,23 @@
+// Author: Antea Knezović
+// Class: Bucket
+// Description:
+//      Based on the standard Cuckoo Filter algorithm (Fan et al., 2014).
+
 #pragma once
 #include <array>
 #include <cstdint>
 
-constexpr std::size_t BUCKET_SIZE = 4;  // broj slotova u bucketu
+// Number of slots per bucket
+constexpr std::size_t BUCKET_SIZE = 4;  
 
-// jedan bucket u cuckoo filteru
+// Represents one bucket in the Cuckoo Filter
+// Stores up to kBucketSIze 16-bit fingerprints.
 struct Bucket {
-    std::array<uint16_t, BUCKET_SIZE> slots{};  // fingerprintovi
+    std::array<uint16_t, BUCKET_SIZE> slots{};  // Stored fingerprints
 
-    bool insert(uint16_t fp);   // pokusaj umetanja fingerprinta
-    bool contains(uint16_t fp) const;   // postoji li fingerprint
+    // Implements basic operations
+    bool insert(uint16_t fp);   
+    bool contains(uint16_t fp) const;   
     bool remove(uint16_t fp);   
-    bool kickout(uint16_t& victim_fp);  // izbacivanje (cuckoo kick)
+    bool kickout(uint16_t& victim_fp);  
 };
