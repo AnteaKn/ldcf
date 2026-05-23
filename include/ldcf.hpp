@@ -1,4 +1,5 @@
 // Author: Antea Knezović
+// Updated by: Ivan Džankić
 // Class: LDCF 
 // Description:
 //      Implements the Logarithimic Dynamic Cuckoo Filter, a multi-level
@@ -23,6 +24,12 @@ public:
 
     // Returns the number of active levels.
     std::size_t num_levels() const { return levels_.size(); }
+
+    // Returns total number of buckets across all levels.
+    std::size_t total_buckets() const;
+
+    // Returns an estimated memory footprint in bytes.
+    std::size_t estimated_memory_bytes() const;
 
 private:
     std::vector<Level> levels_; // All levels of the LDCF (level 0 = newest)
