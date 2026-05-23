@@ -1,4 +1,5 @@
 // Author: Antea Knezović
+// Updated by: Ivan Džankić
 // Class: Bucket
 // Description:
 //      Based on the standard Cuckoo Filter algorithm (Fan et al., 2014).
@@ -19,5 +20,6 @@ struct Bucket {
     bool insert(uint16_t fp);   
     bool contains(uint16_t fp) const;   
     bool remove(uint16_t fp);   
+    // Swaps a victim fingerprint with the provided one.
     bool kickout(uint16_t& victim_fp);  
 };
