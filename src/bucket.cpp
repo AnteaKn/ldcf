@@ -1,7 +1,10 @@
 // Author: Antea Knezović
+// Updated by: Ivan Džankić
 // Implementation of Bucket methods for the Cuckoo Filter
 
 #include "bucket.hpp"
+#include <cstdlib>
+#include <utility>
 
 // Attempts to insert a fingerprint into the first available empty slot.
 // Returns true if insertion suceeds, false if the bucket is full.
@@ -40,9 +43,9 @@ bool Bucket::remove(uint16_t fp) {
 }
 
 // Selects a victim fingerprint for cuckoo eviction.
-// The victim is taken from slot 0 (simple deterministic strategy).
-// Returns true if a non-zero victim was found.
+// Swaps the provided fingerprint with a random slot.
 bool Bucket::kickout(uint16_t& victim_fp) {
-    victim_fp = slots[0];
-    return victim_fp != 0;
+    std::size_t victim_index = static_cast<std::size_t>(std::rand() % BUCKET_SIZE);
+    std::swap(victim_fp, slots[victim_index]);
+    return true;
 }
