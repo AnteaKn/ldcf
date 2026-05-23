@@ -1,4 +1,5 @@
 // Author: Antea Knezović
+// Updated by: Ivan Džankić
 // Class: Level
 // Description:
 //      Represents a single level of the LDCF.
@@ -26,4 +27,7 @@ class Level {
 
         // max_kicks limits the number of allowed evictions.
         bool insert_with_kicks(std::uint64_t x, int max_kicks = 500);
+
+        // Computes the alternate bucket index for a fingerprint.
+        std::size_t alt_index(std::size_t index, std::uint16_t fp) const;
 };
