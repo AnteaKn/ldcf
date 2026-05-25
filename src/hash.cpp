@@ -17,7 +17,7 @@ std::uint64_t hash64(std::uint64_t x, std::uint64_t seed) {
 // Returns a non-zero 16-bit fingerprint.
 std::uint16_t fingerprint(std::uint64_t x) {
     auto h = hash64(x);
-    std::uint16_t fp = static_cast<std::uint16_t>(h& 0xFFFFu);  // lower 16 bits
+    std::uint16_t fp = static_cast<std::uint16_t>(h & 0xFFFFu);  // lower 16 bits
     if (fp == 0) fp = 1;    // fingerprint must not be zero
     return fp;
 }
@@ -26,5 +26,6 @@ std::uint16_t fingerprint(std::uint64_t x) {
 // The index is in the range [0, capacity).
 // Uses modulo operation to map hash to bucket range.
 std::size_t index_from_hash(std::uint64_t h, std::uint64_t capacity) {
+    if (capacity == 0) return 0;
     return static_cast<std::size_t>(h % capacity);
 }
