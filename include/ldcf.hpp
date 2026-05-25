@@ -2,10 +2,10 @@
 // Updated by: Ivan Džankić
 // Class: LDCF 
 // Description:
-//      Implements the Logarithimic Dynamic Cuckoo Filter, a multi-level
-//      probabilitistic strucure that grows dynamically as more elements are inserted.
+//      Implements the Logarithmic Dynamic Cuckoo Filter, a multi-level
+//      probabilistic structure that grows dynamically as more elements are inserted.
 //      Each level is a standalone Cuckoo Filter with increasing capacity.
-//      Based on the algorithim described by Zhang et al., 2021.
+//      Based on the algorithm described by Zhang et al., 2021.
 #pragma once
 #include <vector>
 #include <cstdint>
@@ -34,6 +34,6 @@ public:
 private:
     std::vector<Level> levels_; // All levels of the LDCF (level 0 = newest)
 
-    // Adds a new level if the current heighest level becomes too full.
+    // Adds a new level if the current highest level becomes too full.
     void maybe_grow(); 
 };
