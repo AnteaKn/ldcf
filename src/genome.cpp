@@ -5,9 +5,12 @@
 
 // Loads a genome sequence from a FASTA file at the given path.
 // Skips all header lines and concatenates the remaining 
-// sequence lines into a single continous string.
+// sequence lines into a single continuous string.
 std::string load_genome_fasta(const std::string& path) {
     std::ifstream in(path);
+    if (!in.is_open()) {
+        return "";
+    }
     std::stringstream ss;
     std::string line;
 

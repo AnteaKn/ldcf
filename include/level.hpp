@@ -3,7 +3,7 @@
 // Class: Level
 // Description:
 //      Represents a single level of the LDCF.
-//      Each level is an indepent Cuckoo Filter consisting of multiple buckets.
+//      Each level is an independent Cuckoo Filter consisting of multiple buckets.
 #pragma once
 #include <vector>
 #include "bucket.hpp"
