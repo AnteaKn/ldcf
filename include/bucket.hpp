@@ -10,9 +10,10 @@
 
 // Number of slots per bucket
 constexpr std::size_t BUCKET_SIZE = 4;  
+constexpr uint16_t EMPTY_SLOT = 0;
 
 // Represents one bucket in the Cuckoo Filter
-// Stores up to kBucketSIze 16-bit fingerprints.
+// Stores up to BUCKET_SIZE 16-bit fingerprints.
 struct Bucket {
     std::array<uint16_t, BUCKET_SIZE> slots{};  // Stored fingerprints
 
