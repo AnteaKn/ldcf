@@ -11,7 +11,7 @@
 bool Bucket::insert(uint16_t fp) {
     // umetni fingerprint u prvi slobodan slot
     for (auto& s : slots) {
-        if (s == 0) {   // Empty slot found
+        if (s == EMPTY_SLOT) {   // Empty slot found
             s = fp;
             return true;
         }
@@ -35,7 +35,7 @@ bool Bucket::contains(uint16_t fp) const {
 bool Bucket::remove(uint16_t fp) {
     for (auto& s : slots) {
         if (s == fp) {
-            s = 0;  // Clear the slot
+            s = EMPTY_SLOT;  // Clear the slot
             return true;
         }
     }

@@ -2,7 +2,7 @@
 // Description:
 //      Hash utilities used by the Cuckoo Filter and LDCF implementation.
 //      These functions implement standard hashing techniques 
-//      commonly used in probabilistic data strucutres.
+//      commonly used in probabilistic data structures.
 #pragma once
 #include <cstdint>
 #include <cstddef>
